@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ajay-dimitri-next-app
+    app.kubernetes.io/instance: ajay-dimitri-next-app-instance
+    app.kubernetes.io/name: ajay-dimitri-next-app
+  name: ajay-dimitri-next-app
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app.kubernetes.io/instance: ajay-dimitri-next-app-instance
+    app.kubernetes.io/name: ajay-dimitri-next-app
+  sessionAffinity: None
+  type: ClusterIP
